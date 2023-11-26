@@ -3,6 +3,13 @@ import { forwardRef, useImperativeHandle, useRef } from 'react';
 const ResultModal = forwardRef(function ResultModal({ result, targetTime }, ref) {
   const dialog = useRef();
 
+  /*
+    useImperativeHandle customizes the instance value 
+      that is exposed to parent components when using ref. 
+    As always, imperative code using refs should be avoided in most cases.
+
+    useImperativeHandle should be used with React.forwardRef.
+  */
   useImperativeHandle(ref, () => {
     return {
       open() {
